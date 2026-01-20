@@ -1,33 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>BCL 5 Payment Portal</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCL 5 Registration Payment</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; text-align: center; padding: 20px; background-color: #f4f7f6; }
-        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
-        h2 { color: #333; margin-bottom: 5px; }
-        p { color: #666; margin-bottom: 25px; }
-        .btn { display: block; padding: 15px; margin: 10px 0; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 16px; transition: 0.2s; border: 1px solid #ddd; }
-        .gpay { background-color: #4285F4; color: white; }
-        .phonepe { background-color: #5f259f; color: white; }
-        .paytm { background-color: #00baf2; color: white; }
-        .generic { background-color: #28a745; color: white; }
+        body { font-family: -apple-system, sans-serif; text-align: center; padding: 20px; background: #f4f7f6; color: #333; }
+        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
+        .btn { display: block; padding: 15px; margin: 12px 0; border-radius: 10px; text-decoration: none; font-weight: bold; transition: 0.2s; border: none; cursor: pointer; font-size: 16px; }
+        .gpay { background: #4285F4; color: white; }
+        .phonepe { background: #5f259f; color: white; }
+        .paytm { background: #00baf2; color: white; }
+        .copy-btn { background: #e0e0e0; color: #333; font-size: 14px; }
+        .footer-text { font-size: 12px; color: #888; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>BCL 5 Registration</h2>
-        <p>Choose an app to pay <b>₹500</b></p>
+    <div class="card">
+        <h3>BCL 5 Payment Portal</h3>
+        <p>Paying: <b>₹500</b></p>
+        <p style="font-size: 14px; color: #666;">To: SHREE ASHAPURA MATA BHANDARI JAIN TRUST</p>
 
-        <a href="tez://upi/pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5&mc=8699&orgid=189423&mode=02" class="btn gpay">Pay with Google Pay</a>
+        <div id="android-view" style="display:none;">
+            <p>Redirecting to payment app...</p>
+            <a href="upi://pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5" class="btn gpay">Pay Now</a>
+        </div>
 
-        <a href="phonepe://upi/pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5&mc=8699&orgid=189423&mode=02" class="btn phonepe">Pay with PhonePe</a>
+        <div id="ios-view" style="display:none;">
+            <p>Select your payment app:</p>
+            <a href="tez://upi/pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREEASHAPURA&am=500&cu=INR&tn=BCL5&mc=8699" class="btn gpay">Google Pay</a>
+            <a href="phonepe://pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREEASHAPURA&am=500&cu=INR&tn=BCL5&mc=8699" class="btn phonepe">PhonePe</a>
+            
+            <p style="margin-top:20px; font-size: 13px;">If apps don't open, copy ID & pay manually:</p>
+            <button class="btn copy-btn" onclick="copyUPI()">Copy UPI ID: HDFCB00000062585703@hdfcbank</button>
+        </div>
 
-        <a href="paytmmp://upi/pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5&mc=8699&orgid=189423&mode=02" class="btn paytm">Pay with Paytm</a>
-
-        <hr style="border:0; border-top:1px solid #eee; margin:20px 0;">
-        <a href="upi://pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5&mc=8699&orgid=189423&mode=02" class="btn generic">Any Other App (WhatsApp/BHIM)</a>
+        <p class="footer-text">Verify name on app before paying.</p>
     </div>
+
+    <script>
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const androidView = document.getElementById('android-view');
+        const iosView = document.getElementById('ios-view');
+
+        if (isIOS) {
+            iosView.style.display = 'block';
+        } else {
+            androidView.style.display = 'block';
+            // Auto-redirect for Android (the logic that worked 3 days ago)
+            window.location.href = "upi://pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5";
+        }
+
+        function copyUPI() {
+            navigator.clipboard.writeText("HDFCB00000062585703@hdfcbank");
+            alert("UPI ID Copied! Paste it in any UPI app to pay ₹500.");
+        }
+    </script>
 </body>
 </html>
