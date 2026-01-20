@@ -7,10 +7,9 @@
     <style>
         body { font-family: -apple-system, sans-serif; text-align: center; padding: 20px; background: #f4f7f6; color: #333; }
         .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
-        .btn { display: block; padding: 15px; margin: 12px 0; border-radius: 10px; text-decoration: none; font-weight: bold; transition: 0.2s; border: none; cursor: pointer; font-size: 16px; }
+        .btn { display: block; padding: 15px; margin: 12px 0; border-radius: 10px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; font-size: 16px; }
         .gpay { background: #4285F4; color: white; }
         .phonepe { background: #5f259f; color: white; }
-        .paytm { background: #00baf2; color: white; }
         .copy-btn { background: #e0e0e0; color: #333; font-size: 14px; }
         .footer-text { font-size: 12px; color: #888; margin-top: 20px; }
     </style>
@@ -18,12 +17,11 @@
 <body>
     <div class="card">
         <h3>BCL 5 Payment Portal</h3>
-        <p>Paying: <b>₹500</b></p>
-        <p style="font-size: 14px; color: #666;">To: SHREE ASHAPURA MATA BHANDARI JAIN TRUST</p>
-
+        <p>Registration Fee: <b>₹500</b></p>
+        
         <div id="android-view" style="display:none;">
-            <p>Redirecting to payment app...</p>
-            <a href="upi://pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5" class="btn gpay">Pay Now</a>
+            <p>Redirecting to your payment app...</p>
+            <a href="upi://pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5" class="btn gpay">Pay with Any App</a>
         </div>
 
         <div id="ios-view" style="display:none;">
@@ -35,7 +33,7 @@
             <button class="btn copy-btn" onclick="copyUPI()">Copy UPI ID: HDFCB00000062585703@hdfcbank</button>
         </div>
 
-        <p class="footer-text">Verify name on app before paying.</p>
+        <p class="footer-text">Verify: SHREE ASHAPURA MATA BHANDARI JAIN TRUST</p>
     </div>
 
     <script>
@@ -47,7 +45,7 @@
             iosView.style.display = 'block';
         } else {
             androidView.style.display = 'block';
-            // Auto-redirect for Android (the logic that worked 3 days ago)
+            // Trigger the original working Android redirect immediately
             window.location.href = "upi://pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5";
         }
 
