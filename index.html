@@ -1,73 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BCL 5 Registration Payment</title>
-  <style>
-    body { font-family: -apple-system, sans-serif; text-align: center; padding: 20px; background: #f4f7f6; color: #333; }
-    .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
-    .btn { display: block; padding: 15px; margin: 12px 0; border-radius: 10px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; font-size: 16px; }
-    .gpay { background: #4285F4; color: white; }
-    .phonepe { background: #5f259f; color: white; }
-    .copy-btn { background: #e0e0e0; color: #333; font-size: 14px; }
-    .footer-text { font-size: 12px; color: #888; margin-top: 20px; }
-  </style>
+    <title>BCL 5 Registration Payment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="0;URL='upi://pay?pa=vyapar.171035858351@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL%205%20Registration%20Fees'">
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; }
+        .btn { background: #28a745; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.2rem; display: inline-block; margin-top: 20px; }
+    </style>
 </head>
 <body>
-  <div class="card">
-    <h3>BCL 5 Payment Portal</h3>
-    <p>Registration Fee: <b>₹500</b></p>
-
-    <div id="android-view" style="display:none;">
-      <p>Redirecting to your payment app...</p>
-      <a id="upiLink" class="btn gpay">Pay with Any App</a>
-    </div>
-
-    <div id="ios-view" style="display:none;">
-      <p>Select your payment app:</p>
-      <a id="gpayLink" class="btn gpay">Google Pay</a>
-      <a id="phonepeLink" class="btn phonepe">PhonePe</a>
-
-      <p style="margin-top:20px; font-size: 13px;">If apps don't open, copy ID & pay manually:</p>
-      <button class="btn copy-btn" onclick="copyUPI()">Copy UPI ID: vyapar.171035858351@hdfcbank</button>
-    </div>
-
-    <p class="footer-text">Verify: SHREE ASHAPURA MATA BHANDARI JAIN TRUST</p>
-  </div>
-
-  <script>
-    const upiURL =
-      "upi://pay?" +
-      "pa=vyapar.171035858351@hdfcbank" +
-      "&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST" +
-      "&am=500" +
-      "&cu=INR" +
-      "&tn=BCL5" +
-      "&mc=8699" +
-      "&mode=02" +
-      "&tid=62585703" +
-      "&tr=BCL5-001";
-
-    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const androidView = document.getElementById("android-view");
-    const iosView = document.getElementById("ios-view");
-
-    document.getElementById("upiLink").href = upiURL;
-    document.getElementById("gpayLink").href = "tez://upi/pay?" + upiURL.split("?")[1];
-    document.getElementById("phonepeLink").href = "phonepe://pay?" + upiURL.split("?")[1];
-
-    if (isIOS) {
-      iosView.style.display = "block";
-    } else {
-      androidView.style.display = "block";
-      window.location.href = upiURL;
-    }
-
-    function copyUPI() {
-      navigator.clipboard.writeText("vyapar.171035858351@hdfcbank");
-      alert("UPI ID Copied! Paste it in any UPI app to pay ₹500.");
-    }
-  </script>
+    <h2>Redirecting to Payment App...</h2>
+    <p>If your app doesn't open automatically, click the button below:</p>
+    <a href="upi://pay?pa=vyapar.171035858351@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL%205%20Registration%20Fees" class="btn">PAY ₹500 NOW</a>
 </body>
 </html>
