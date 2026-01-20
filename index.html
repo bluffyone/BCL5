@@ -9,25 +9,25 @@
         h2 { color: #333; margin-bottom: 5px; }
         p { color: #666; margin-bottom: 25px; }
         .btn { display: block; padding: 15px; margin: 10px 0; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 16px; transition: 0.2s; border: 1px solid #ddd; }
-        .gpay { background-color: #fff; color: #5f6368; }
+        .gpay { background-color: #4285F4; color: white; }
         .phonepe { background-color: #5f259f; color: white; }
         .paytm { background-color: #00baf2; color: white; }
         .generic { background-color: #28a745; color: white; }
-        .btn:active { transform: scale(0.98); opacity: 0.9; }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>BCL 5 Registration</h2>
-        <p>Select your app to pay <b>₹500</b></p>
+        <p>Choose an app to pay <b>₹500</b></p>
 
-        <a href="gpay://upi/pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5&mc=8699&orgid=189423&mode=02" class="btn gpay">Pay with Google Pay</a>
+        <a href="tez://upi/pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5&mc=8699&orgid=189423&mode=02" class="btn gpay">Pay with Google Pay</a>
 
         <a href="phonepe://upi/pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5&mc=8699&orgid=189423&mode=02" class="btn phonepe">Pay with PhonePe</a>
 
         <a href="paytmmp://upi/pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5&mc=8699&orgid=189423&mode=02" class="btn paytm">Pay with Paytm</a>
 
-        <a href="upi://pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5&mc=8699&orgid=189423&mode=02" class="btn generic">All Other UPI Apps</a>
+        <hr style="border:0; border-top:1px solid #eee; margin:20px 0;">
+        <a href="upi://pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5&mc=8699&orgid=189423&mode=02" class="btn generic">Any Other App (WhatsApp/BHIM)</a>
     </div>
 </body>
 </html>
