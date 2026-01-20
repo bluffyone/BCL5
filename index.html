@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BCL 5 Registration Payment</title>
+    <title>BCL 5 Payment Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="refresh" content="0;URL='upi://pay?pa=vyapar.171035858351@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL%205%20Registration%20Fees'">
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; }
-        .btn { background: #28a745; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.2rem; display: inline-block; margin-top: 20px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; text-align: center; padding: 20px; background-color: #f4f7f6; }
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
+        h2 { color: #333; margin-bottom: 5px; }
+        p { color: #666; margin-bottom: 25px; }
+        .btn { display: block; padding: 15px; margin: 10px 0; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 16px; transition: 0.2s; border: 1px solid #ddd; }
+        /* Brand Colors */
+        .gpay { background-color: #fff; color: #5f6368; }
+        .phonepe { background-color: #5f259f; color: white; }
+        .paytm { background-color: #00baf2; color: white; }
+        .generic { background-color: #28a745; color: white; }
+        .btn:active { transform: scale(0.98); opacity: 0.9; }
     </style>
 </head>
 <body>
-    <h2>Redirecting to Payment App...</h2>
-    <p>If your app doesn't open automatically, click the button below:</p>
-    <a href="upi://pay?pa=vyapar.171035858351@hdfcbankk&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL%205%20Registration%20Fees" class="btn">PAY ₹500 NOW</a>
+    <div class="container">
+        <h2>BCL 5 Registration</h2>
+        <p>Select an app to pay <b>₹500</b></p>
+
+        <a href="gpay://upi/pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5" class="btn gpay">Pay with Google Pay</a>
+
+        <a href="phonepe://pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5" class="btn phonepe">Pay with PhonePe</a>
+
+        <a href="paytmmp://pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5" class="btn paytm">Pay with Paytm</a>
+
+        <a href="upi://pay?pa=HDFCB00000062585703@hdfcbank&pn=SHREE%20ASHAPURA%20MATA%20BHANDARI%20JAIN%20TRUST&am=500&cu=INR&tn=BCL5" class="btn generic">Other UPI Apps</a>
+    </div>
 </body>
 </html>
